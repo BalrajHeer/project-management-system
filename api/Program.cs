@@ -35,7 +35,7 @@ app.MapGet("/weatherforecast", () =>
 app.MapGet("/home", () =>
 {
     
-    return "API is running";
+    return "API is working";
 })
 .WithName("GetHome");
 
