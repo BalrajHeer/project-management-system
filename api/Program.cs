@@ -32,12 +32,24 @@ app.MapGet("/weatherforecast", () =>
     return forecast;
 })
 .WithName("GetWeatherForecast");
-app.MapGet("/home", () =>
+app.MapGet("/", () =>
 {
     
     return "API is working";
 })
 .WithName("GetHome");
+
+app.MapGet("/{price}/{tax}", (double price, double tax) =>
+{
+    var final = Math.Round(price + (price * tax), 2);
+    return new 
+    { 
+        price = Math.Round(price, 2), 
+        tax = Math.Round(tax, 2), 
+        final 
+    };
+})
+.WithName("GetTax");
 
 app.Run();
 
